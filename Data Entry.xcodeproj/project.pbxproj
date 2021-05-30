@@ -23,8 +23,10 @@
 		477FD5032663C75D005A6978 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD5022663C75D005A6978 /* UserListViewController.swift */; };
 		477FD5062663C775005A6978 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD5052663C775005A6978 /* UserListViewModel.swift */; };
 		477FD5092663CBA0005A6978 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD5082663CBA0005A6978 /* ReusableView.swift */; };
-		477FD50E2663CBDD005A6978 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD50C2663CBDD005A6978 /* UserCell.swift */; };
-		477FD50F2663CBDD005A6978 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 477FD50D2663CBDD005A6978 /* UserCell.xib */; };
+		477FD50E2663CBDD005A6978 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD50C2663CBDD005A6978 /* HeaderCell.swift */; };
+		477FD50F2663CBDD005A6978 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 477FD50D2663CBDD005A6978 /* HeaderCell.xib */; };
+		477FD5172663D4E8005A6978 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD5152663D4E8005A6978 /* DetailCell.swift */; };
+		477FD5182663D4E8005A6978 /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 477FD5162663D4E8005A6978 /* DetailCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +48,10 @@
 		477FD5022663C75D005A6978 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		477FD5052663C775005A6978 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		477FD5082663CBA0005A6978 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
-		477FD50C2663CBDD005A6978 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
-		477FD50D2663CBDD005A6978 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		477FD50C2663CBDD005A6978 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		477FD50D2663CBDD005A6978 /* HeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
+		477FD5152663D4E8005A6978 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		477FD5162663D4E8005A6978 /* DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,10 +189,28 @@
 		477FD50B2663CBBD005A6978 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				477FD50C2663CBDD005A6978 /* UserCell.swift */,
-				477FD50D2663CBDD005A6978 /* UserCell.xib */,
+				477FD5142663D4D6005A6978 /* DetailCell */,
+				477FD5132663D4CA005A6978 /* Header Cell */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		477FD5132663D4CA005A6978 /* Header Cell */ = {
+			isa = PBXGroup;
+			children = (
+				477FD50C2663CBDD005A6978 /* HeaderCell.swift */,
+				477FD50D2663CBDD005A6978 /* HeaderCell.xib */,
+			);
+			path = "Header Cell";
+			sourceTree = "<group>";
+		};
+		477FD5142663D4D6005A6978 /* DetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				477FD5152663D4E8005A6978 /* DetailCell.swift */,
+				477FD5162663D4E8005A6978 /* DetailCell.xib */,
+			);
+			path = DetailCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,10 +270,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				477FD50F2663CBDD005A6978 /* UserCell.xib in Resources */,
+				477FD50F2663CBDD005A6978 /* HeaderCell.xib in Resources */,
 				477FD4CA26639E1B005A6978 /* LaunchScreen.storyboard in Resources */,
 				477FD4C726639E1B005A6978 /* Assets.xcassets in Resources */,
 				477FD4C526639E1B005A6978 /* Main.storyboard in Resources */,
+				477FD5182663D4E8005A6978 /* DetailCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,8 +290,9 @@
 				477FD5032663C75D005A6978 /* UserListViewController.swift in Sources */,
 				477FD4E92663AB1C005A6978 /* Bindable.swift in Sources */,
 				477FD4DB2663A0B7005A6978 /* RegisterViewController.swift in Sources */,
+				477FD5172663D4E8005A6978 /* DetailCell.swift in Sources */,
 				477FD4BE26639E1A005A6978 /* AppDelegate.swift in Sources */,
-				477FD50E2663CBDD005A6978 /* UserCell.swift in Sources */,
+				477FD50E2663CBDD005A6978 /* HeaderCell.swift in Sources */,
 				477FD4F72663B7D5005A6978 /* User.swift in Sources */,
 				477FD5092663CBA0005A6978 /* ReusableView.swift in Sources */,
 				477FD4FF2663BD3B005A6978 /* Constants.swift in Sources */,

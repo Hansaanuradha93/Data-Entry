@@ -12,7 +12,8 @@ extension ReusableView where Self: UIView {
 }
 
 
-extension UserCell: ReusableView {}
+extension HeaderCell: ReusableView {}
+extension DetailCell: ReusableView {}
 
 protocol NibLoadableView: class {}
 
