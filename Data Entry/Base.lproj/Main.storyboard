@@ -128,8 +128,41 @@
             </objects>
             <point key="canvasLocation" x="-194" y="113"/>
         </scene>
+        <!--User List View Controller-->
+        <scene sceneID="yav-x5-2ac">
+            <objects>
+                <viewController storyboardIdentifier="UserListViewController" id="dqB-H2-NIh" customClass="UserListViewController" customModule="Data_Entry" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Oj-KM-nus">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ClC-kg-hM7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vtX-wi-GSs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ClC-kg-hM7" firstAttribute="leading" secondItem="vtX-wi-GSs" secondAttribute="leading" id="Zvd-4C-cQr"/>
+                            <constraint firstItem="vtX-wi-GSs" firstAttribute="trailing" secondItem="ClC-kg-hM7" secondAttribute="trailing" id="p3L-hT-hv3"/>
+                            <constraint firstItem="vtX-wi-GSs" firstAttribute="bottom" secondItem="ClC-kg-hM7" secondAttribute="bottom" id="vbl-Tj-bFA"/>
+                            <constraint firstItem="ClC-kg-hM7" firstAttribute="top" secondItem="vtX-wi-GSs" secondAttribute="top" id="yYL-eV-yWE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ClC-kg-hM7" id="hQ0-7p-3x9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s7u-4G-B8Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="596" y="113"/>
+        </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

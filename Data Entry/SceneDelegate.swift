@@ -7,7 +7,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let controller = RegisterViewController.create(viewModel: RegisterViewModel())
+        let controller = UserListViewController.create(viewModel: UserListViewModel())
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = UINavigationController(rootViewController: controller)
         self.window = window
