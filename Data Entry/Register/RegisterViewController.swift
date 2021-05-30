@@ -71,6 +71,7 @@ private extension RegisterViewController {
         viewModel.fistName = firstNameTextField.text
         viewModel.lastName = lastNameTextField.text
         viewModel.phoneNumber = phoneNumberTextField.text
+        errorMessageLabel.text = ""
     }
     
     @objc func handleTap() {
