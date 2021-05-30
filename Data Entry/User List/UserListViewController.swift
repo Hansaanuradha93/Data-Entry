@@ -77,8 +77,8 @@ private extension UserListViewController {
     
     @objc func addButtonTapped() {
         let controller = RegisterViewController.create(viewModel: RegisterViewModel())
-        controller.modalPresentationStyle = .fullScreen
-        self.present(controller, animated: true)
+        controller.modalPresentationStyle = .overCurrentContext
+        self.present(controller, animated: false)
     }
 }
 

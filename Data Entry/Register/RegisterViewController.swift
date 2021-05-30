@@ -16,7 +16,10 @@ class RegisterViewController: UIViewController {
     
     private var viewModel: RegisterViewModel!
     
+    let visibleAlpha: CGFloat = 0.7
+    
     // MARK: IBOutlets
+    @IBOutlet weak var alphaView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var registerLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
@@ -31,6 +34,13 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupViewModelObservers()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animate(withDuration: 0.5) {
+            self.alphaView.alpha = self.visibleAlpha
+        }
     }
     
     // MARK: IBActions
@@ -91,7 +101,7 @@ private extension RegisterViewController {
     
     func setupViews() {
         navigationController?.isNavigationBarHidden = true
-        
+
         let radius = CGFloat(10)
         containerView.layer.cornerRadius = radius
         emailTextField.layer.cornerRadius = radius
