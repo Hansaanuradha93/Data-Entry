@@ -16,7 +16,12 @@ final class RegisterViewModel {
 extension RegisterViewModel {
     
     private func checkFormValidity() {
-        let isFormValid = email?.isEmpty == false && fistName?.isEmpty == false && lastName?.isEmpty == false && phoneNumber?.isEmpty == false
+        let emailValue = email ?? ""
+        let phoneNumberValue = phoneNumber ?? ""
+        let isEmailValid = emailValue.isBlank == false && emailValue.isEmail
+        let isPhoneNumberValid = phoneNumberValue.isPhoneNumber
+                
+        let isFormValid = isEmailValid && fistName?.isBlank == false && lastName?.isBlank == false && isPhoneNumberValid
         bindalbeIsFormValid.value = isFormValid
     }
 }

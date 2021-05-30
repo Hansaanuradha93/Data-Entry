@@ -15,6 +15,7 @@
 		477FD4DB2663A0B7005A6978 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4DA2663A0B7005A6978 /* RegisterViewController.swift */; };
 		477FD4DF2663A0C6005A6978 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4DE2663A0C6005A6978 /* RegisterViewModel.swift */; };
 		477FD4E92663AB1C005A6978 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4E82663AB1C005A6978 /* Bindable.swift */; };
+		477FD4EE2663AECD005A6978 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4ED2663AECD005A6978 /* String+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		477FD4DA2663A0B7005A6978 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		477FD4DE2663A0C6005A6978 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		477FD4E82663AB1C005A6978 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		477FD4ED2663AECD005A6978 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				477FD4D326639FB4005A6978 /* Model */,
 				477FD4D426639FBC005A6978 /* Scene */,
 				477FD4E72663AB10005A6978 /* Helper */,
+				477FD4EC2663AEC1005A6978 /* Extensions */,
 				477FD4D226639F9E005A6978 /* Support Files */,
 			);
 			path = "Data Entry";
@@ -127,6 +130,14 @@
 				477FD4E82663AB1C005A6978 /* Bindable.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		477FD4EC2663AEC1005A6978 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				477FD4ED2663AECD005A6978 /* String+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				477FD4EE2663AECD005A6978 /* String+Ext.swift in Sources */,
 				477FD4E92663AB1C005A6978 /* Bindable.swift in Sources */,
 				477FD4DB2663A0B7005A6978 /* RegisterViewController.swift in Sources */,
 				477FD4BE26639E1A005A6978 /* AppDelegate.swift in Sources */,
