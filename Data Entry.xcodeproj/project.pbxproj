@@ -96,6 +96,7 @@
 		477FD4D82663A092005A6978 /* Main  */ = {
 			isa = PBXGroup;
 			children = (
+				477FD4E12663A35D005A6978 /* User List */,
 				477FD4D92663A0A4005A6978 /* Register */,
 			);
 			name = "Main ";
@@ -108,6 +109,13 @@
 				477FD4DE2663A0C6005A6978 /* RegisterViewModel.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		477FD4E12663A35D005A6978 /* User List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "User List";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
