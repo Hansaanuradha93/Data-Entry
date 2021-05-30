@@ -78,6 +78,7 @@ private extension UserListViewController {
     @objc func addButtonTapped() {
         let controller = RegisterViewController.create(viewModel: RegisterViewModel())
         controller.modalPresentationStyle = .overCurrentContext
+        controller.delegate = self
         self.present(controller, animated: false)
     }
 }
@@ -118,5 +119,13 @@ private extension UserListViewController {
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
+    }
+}
+
+// MARK: - RegisterViewControllerDelegate
+extension UserListViewController: RegisterViewControllerDelegate {
+    
+    func tappedSubmitButton() {
+        getUsers()
     }
 }

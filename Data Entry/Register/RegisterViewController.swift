@@ -1,5 +1,9 @@
 import UIKit
 
+protocol RegisterViewControllerDelegate {
+    func tappedSubmitButton()
+}
+
 class RegisterViewController: UIViewController {
     
     // MARK: Properties
@@ -15,8 +19,8 @@ class RegisterViewController: UIViewController {
     }
     
     private var viewModel: RegisterViewModel!
-    
-    let visibleAlpha: CGFloat = 0.7
+    private let visibleAlpha: CGFloat = 0.7
+    var delegate: RegisterViewControllerDelegate?
     
     // MARK: IBOutlets
     @IBOutlet weak var alphaView: UIView!
@@ -51,7 +55,7 @@ class RegisterViewController: UIViewController {
             if status {
                 self.resetUI()
                 self.errorMessageLabel.text = ""
-//                self.errorMessageLabel.text = message
+                self.dismiss(animated: false) { self.delegate?.tappedSubmitButton() }
             } else {
                 self.errorMessageLabel.text = message
             }
@@ -67,6 +71,10 @@ private extension RegisterViewController {
         viewModel.fistName = firstNameTextField.text
         viewModel.lastName = lastNameTextField.text
         viewModel.phoneNumber = phoneNumberTextField.text
+    }
+    
+    @objc func handleTap() {
+        dismiss(animated: false)
     }
 }
 
@@ -114,5 +122,8 @@ private extension RegisterViewController {
         firstNameTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         lastNameTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         phoneNumberTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
+        
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(handleTap))
+        alphaView.addGestureRecognizer(gesture)
     }
 }
