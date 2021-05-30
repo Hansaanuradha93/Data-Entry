@@ -29,6 +29,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        setupViewModelObservers()
     }
     
     // MARK: IBActions
@@ -37,11 +38,37 @@ class RegisterViewController: UIViewController {
     }
 }
 
+// MARK: - Objc Methods
+private extension RegisterViewController {
+    
+    @objc func handleTextChange(textField: UITextField) {
+        viewModel.email = emailTextField.text
+        viewModel.fistName = firstNameTextField.text
+        viewModel.lastName = lastNameTextField.text
+        viewModel.phoneNumber = phoneNumberTextField.text
+    }
+}
+
 // MARK: - Private Methods
 private extension RegisterViewController {
     
+    func setupViewModelObservers() {
+        viewModel.bindalbeIsFormValid.bind { [weak self] isFormValid in
+            guard let self = self, let isFormValid = isFormValid else { return }
+            if isFormValid {
+                self.submitButton.backgroundColor = .black
+                self.submitButton.setTitleColor(.white, for: .normal)
+            } else {
+                self.submitButton.backgroundColor = .lightGray
+                self.submitButton.setTitleColor(.white, for: .normal)
+            }
+            self.submitButton.isEnabled = isFormValid
+        }
+    }
+    
     func setupViews() {
         navigationController?.isNavigationBarHidden = true
+        
         let radius = CGFloat(10)
         containerView.layer.cornerRadius = radius
         emailTextField.layer.cornerRadius = radius
@@ -49,5 +76,10 @@ private extension RegisterViewController {
         lastNameTextField.layer.cornerRadius = radius
         phoneNumberTextField.layer.cornerRadius = radius
         submitButton.layer.cornerRadius = radius
+        
+        emailTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
+        firstNameTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
+        lastNameTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
+        phoneNumberTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
     }
 }
