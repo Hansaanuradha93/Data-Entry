@@ -28,9 +28,11 @@ extension PersistenceManager {
             case .success(var users):
                 switch actionType {
                 case .add:
-                    guard !users.contains(user) else {
-                        completed(.alreadyRegistered)
-                        return
+                    for selectedUser in users {
+                        guard !((selectedUser.phoneNumber ?? "") == (user.phoneNumber ?? "")) else {
+                            completed(.alreadyRegistered)
+                            return
+                        }
                     }
                     users.append(user)
                 }
