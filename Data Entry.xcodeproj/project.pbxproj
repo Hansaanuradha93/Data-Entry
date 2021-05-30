@@ -16,6 +16,10 @@
 		477FD4DF2663A0C6005A6978 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4DE2663A0C6005A6978 /* RegisterViewModel.swift */; };
 		477FD4E92663AB1C005A6978 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4E82663AB1C005A6978 /* Bindable.swift */; };
 		477FD4EE2663AECD005A6978 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4ED2663AECD005A6978 /* String+Ext.swift */; };
+		477FD4F42663B78E005A6978 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4F32663B78E005A6978 /* PersistanceManager.swift */; };
+		477FD4F72663B7D5005A6978 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4F62663B7D5005A6978 /* User.swift */; };
+		477FD4FB2663B890005A6978 /* DEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4FA2663B890005A6978 /* DEError.swift */; };
+		477FD4FF2663BD3B005A6978 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4FE2663BD3B005A6978 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		477FD4DE2663A0C6005A6978 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		477FD4E82663AB1C005A6978 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		477FD4ED2663AECD005A6978 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		477FD4F32663B78E005A6978 /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
+		477FD4F62663B7D5005A6978 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		477FD4FA2663B890005A6978 /* DEError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEError.swift; sourceTree = "<group>"; };
+		477FD4FE2663BD3B005A6978 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +72,8 @@
 			children = (
 				477FD4D326639FB4005A6978 /* Model */,
 				477FD4D426639FBC005A6978 /* Scene */,
+				477FD4F92663B87E005A6978 /* Utilities */,
+				477FD4F22663B778005A6978 /* Managers */,
 				477FD4E72663AB10005A6978 /* Helper */,
 				477FD4EC2663AEC1005A6978 /* Extensions */,
 				477FD4D226639F9E005A6978 /* Support Files */,
@@ -86,6 +96,7 @@
 		477FD4D326639FB4005A6978 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				477FD4F62663B7D5005A6978 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -138,6 +149,23 @@
 				477FD4ED2663AECD005A6978 /* String+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		477FD4F22663B778005A6978 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				477FD4F32663B78E005A6978 /* PersistanceManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		477FD4F92663B87E005A6978 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				477FD4FA2663B890005A6978 /* DEError.swift */,
+				477FD4FE2663BD3B005A6978 /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,8 +242,12 @@
 				477FD4E92663AB1C005A6978 /* Bindable.swift in Sources */,
 				477FD4DB2663A0B7005A6978 /* RegisterViewController.swift in Sources */,
 				477FD4BE26639E1A005A6978 /* AppDelegate.swift in Sources */,
+				477FD4F72663B7D5005A6978 /* User.swift in Sources */,
+				477FD4FF2663BD3B005A6978 /* Constants.swift in Sources */,
 				477FD4C026639E1B005A6978 /* SceneDelegate.swift in Sources */,
 				477FD4DF2663A0C6005A6978 /* RegisterViewModel.swift in Sources */,
+				477FD4FB2663B890005A6978 /* DEError.swift in Sources */,
+				477FD4F42663B78E005A6978 /* PersistanceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,8 @@ final class RegisterViewModel {
     var fistName: String? { didSet { checkFormValidity() } }
     var lastName: String? { didSet { checkFormValidity() } }
     var phoneNumber: String? { didSet { checkFormValidity() } }
+    
+    let userKey = PersistenceManager.Keys.users
 
     // MARK: Bindlable
     var bindalbeIsFormValid = Bindable<Bool>()
@@ -14,6 +16,16 @@ final class RegisterViewModel {
 
 // MARK: - Methods
 extension RegisterViewModel {
+    
+    func saveUser(user: User, completion: @escaping (Bool, String) -> ()) {
+        PersistenceManager.updateWith(user: user, actionType: .add) { error in
+            if let error = error {
+                completion(false, error.rawValue)
+                return
+            }
+            completion(true, Strings.youHaveSuccessfullyFavouritedTheUser)
+        }
+    }
     
     private func checkFormValidity() {
         let emailValue = email ?? ""

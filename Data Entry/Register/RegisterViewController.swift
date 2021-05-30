@@ -24,6 +24,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var errorMessageLabel: UILabel!
     
     // MARK: View Controller
     override func viewDidLoad() {
@@ -34,7 +35,17 @@ class RegisterViewController: UIViewController {
     
     // MARK: IBActions
     @IBAction func submitButtonTapped(_ sender: Any) {
-        print("submit")
+        let user = User(email: viewModel.email, firstName: viewModel.fistName, lastName: viewModel.lastName, phoneNumber: viewModel.phoneNumber)
+        viewModel.saveUser(user: user) { [weak self] status, message in
+            guard let self = self else { return }
+            if status {
+                self.resetUI()
+                self.errorMessageLabel.text = ""
+//                self.errorMessageLabel.text = message
+            } else {
+                self.errorMessageLabel.text = message
+            }
+        }
     }
 }
 
@@ -64,6 +75,18 @@ private extension RegisterViewController {
             }
             self.submitButton.isEnabled = isFormValid
         }
+    }
+    
+    func resetUI() {
+        viewModel.email = ""
+        viewModel.fistName = ""
+        viewModel.lastName = ""
+        viewModel.phoneNumber = ""
+        
+        emailTextField.text = ""
+        firstNameTextField.text = ""
+        lastNameTextField.text = ""
+        phoneNumberTextField.text = ""
     }
     
     func setupViews() {
