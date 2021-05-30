@@ -2,7 +2,28 @@ import Foundation
 
 final class UserListViewModel {
     
+    // MARK: Types
+    enum SectionType {
+        case header
+        case detail
+    }
+    
+    struct Section {
+        var sectionType: SectionType
+        var index: Int
+    }
+    
+    // MARK: Properties
+    var sections: [Section] = [
+        Section(sectionType: .header, index: 0),
+        Section(sectionType: .detail, index: 1)
+    ]
+    
     var users: [User] = []
+}
+
+// MARK: - Methods
+extension UserListViewModel {
     
     func getUsers(completion: @escaping (Bool) -> ()) {
         PersistenceManager.retrieveUsers { result in
@@ -10,7 +31,7 @@ final class UserListViewModel {
             case .success(let users):
                 self.users = users
                 completion(true)
-            case .failure(let error):
+            case .failure(_):
                 self.users = []
                 completion(false)
             }

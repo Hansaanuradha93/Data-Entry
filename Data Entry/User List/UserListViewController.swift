@@ -18,7 +18,6 @@ class UserListViewController: UIViewController {
     
     // MARK: IBOutlets
     @IBOutlet weak var tableView: UITableView!
-    
 
     // MARK: View Controller
     override func viewDidLoad() {
@@ -31,22 +30,80 @@ class UserListViewController: UIViewController {
 
 // MARK: - UITableView
 extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.sections.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.users.count
+        let section = viewModel.sections[section]
+        
+        switch section.sectionType {
+        case .header:
+            return viewModel.users.count > 0 ? 1 : 0
+        case .detail:
+            return viewModel.users.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UserCell.self), for: indexPath) as! UserCell
-        return cell
+        let section = viewModel.sections[indexPath.section]
+        
+        switch section.sectionType {
+        case .header:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HeaderCell.self), for: indexPath) as! HeaderCell
+            return cell
+        case .detail:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DetailCell.self), for: indexPath) as! DetailCell
+            cell.set(user: viewModel.users[indexPath.row])
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        let section = viewModel.sections[indexPath.section]
+        
+        switch section.sectionType {
+        case .header:
+            return 70
+        case .detail:
+            return 90
+        }
     }
 }
 
 // MARK: - Private Methods
 private extension UserListViewController {
+    
+    @objc func addButtonTapped() {
+        let controller = RegisterViewController.create(viewModel: RegisterViewModel())
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true)
+    }
+}
+
+// MARK: - Private Methods
+private extension UserListViewController {
+    
+    func updateUI() {
+        if self.viewModel.users.isEmpty {
+            DispatchQueue.main.async { self.tableView.backgroundView = DEEmptyStateView() }
+        } else {
+            DispatchQueue.main.async { self.tableView.backgroundView = nil }
+        }
+        DispatchQueue.main.async { self.tableView.reloadData() }
+    }
+    
+    func getUsers() {
+        viewModel.getUsers { [weak self] status in
+            guard let self = self else { return }
+            if status {
+                DispatchQueue.main.async {
+                    self.updateUI()
+                }
+            }
+        }
+    }
     
     func setupViews() {
         view.backgroundColor = .systemBackground
@@ -54,32 +111,12 @@ private extension UserListViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         tableView.separatorStyle = .none
-//        tableView.removeExcessCells()
-        tableView.register(UserCell.self)
+        tableView.register(HeaderCell.self)
+        tableView.register(DetailCell.self)
         tableView.dataSource = self
         tableView.delegate = self
-    }
-    
-//    func updateUI(withFavourites favourites: [Follower]) {
-//        if favourites.isEmpty {
-//            let message = Strings.noFavouritesGoFollowSome
-//            DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
-//            return
-//        }
-//        self.favourites = favourites
-//        self.setDataSourceAndDelegate(with: favourites)
-//        DispatchQueue.main.async {
-//            self.view.bringSubviewToFront(self.tableView)
-//            self.tableView.reloadData()
-//        }
-//    }
-    
-    func getUsers() {
-        viewModel.getUsers { [weak self] status in
-            guard let self = self else { return }
-            if status {
-                print(self.viewModel.users)
-            }
-        }
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        navigationItem.rightBarButtonItem = addButton
     }
 }
