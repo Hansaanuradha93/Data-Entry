@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		473682DA267D122B00A8ECBD /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 473682D9267D122B00A8ECBD /* CHCSVParser.m */; };
 		477FD4BE26639E1A005A6978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4BD26639E1A005A6978 /* AppDelegate.swift */; };
 		477FD4C026639E1B005A6978 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4BF26639E1B005A6978 /* SceneDelegate.swift */; };
 		477FD4C526639E1B005A6978 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477FD4C326639E1B005A6978 /* Main.storyboard */; };
@@ -34,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		473682D3267D11B900A8ECBD /* Data Entry-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Data Entry-Bridging-Header.h"; sourceTree = "<group>"; };
+		473682D8267D122B00A8ECBD /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
+		473682D9267D122B00A8ECBD /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
 		477FD4BA26639E1A005A6978 /* Data Entry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Data Entry.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		477FD4BD26639E1A005A6978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		477FD4BF26639E1B005A6978 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 		477FD4B126639E1A005A6978 = {
 			isa = PBXGroup;
 			children = (
+				473682D8267D122B00A8ECBD /* CHCSVParser.h */,
+				473682D9267D122B00A8ECBD /* CHCSVParser.m */,
 				477FD4BC26639E1A005A6978 /* Data Entry */,
 				477FD4BB26639E1A005A6978 /* Products */,
 			);
@@ -100,6 +106,7 @@
 				477FD4E72663AB10005A6978 /* Helper */,
 				477FD4EC2663AEC1005A6978 /* Extensions */,
 				477FD4D226639F9E005A6978 /* Support Files */,
+				473682D3267D11B900A8ECBD /* Data Entry-Bridging-Header.h */,
 			);
 			path = "Data Entry";
 			sourceTree = "<group>";
@@ -288,6 +295,7 @@
 				TargetAttributes = {
 					477FD4B926639E1A005A6978 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -337,6 +345,7 @@
 				477FD4E92663AB1C005A6978 /* Bindable.swift in Sources */,
 				477FD52B2663DC7F005A6978 /* UIView+Ext.swift in Sources */,
 				477FD4DB2663A0B7005A6978 /* RegisterViewController.swift in Sources */,
+				473682DA267D122B00A8ECBD /* CHCSVParser.m in Sources */,
 				477FD5172663D4E8005A6978 /* DetailCell.swift in Sources */,
 				477FD4BE26639E1A005A6978 /* AppDelegate.swift in Sources */,
 				477FD50E2663CBDD005A6978 /* HeaderCell.swift in Sources */,
@@ -494,6 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7BXSU3YQGA;
 				INFOPLIST_FILE = "Data Entry/Info.plist";
@@ -503,6 +513,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.castleCode.Data-Entry";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Data Entry/Data Entry-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -513,6 +525,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7BXSU3YQGA;
 				INFOPLIST_FILE = "Data Entry/Info.plist";
@@ -522,6 +535,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.castleCode.Data-Entry";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Data Entry/Data Entry-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
