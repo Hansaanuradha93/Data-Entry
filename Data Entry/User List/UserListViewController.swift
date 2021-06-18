@@ -81,10 +81,49 @@ private extension UserListViewController {
         controller.delegate = self
         self.present(controller, animated: false)
     }
+    
+    @objc func extractButtonTapped() {
+        exportToCSV()
+    }
 }
 
 // MARK: - Private Methods
 private extension UserListViewController {
+    
+    func exportToCSV() {
+        let fileName = "registered_users.csv"
+        let documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        let documentUrl = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(fileName)
+        
+        let output = OutputStream.toMemory()
+        
+        let csvWriter = CHCSVWriter(outputStream: output, encoding: String.Encoding.utf8.rawValue, delimiter: ",".utf16.first!)
+        
+        csvWriter?.writeField("Email")
+        csvWriter?.writeField("Full Name")
+        csvWriter?.writeField("Phone Number")
+        csvWriter?.finishLine()
+        
+        guard !viewModel.users.isEmpty else { return }
+        
+        for user in viewModel.users.enumerated() {
+            csvWriter?.writeField(user.element.email ?? "")
+            csvWriter?.writeField("\(user.element.firstName ?? "") \(user.element.lastName ?? "")")
+            csvWriter?.writeField(user.element.phoneNumber ?? "")
+
+            csvWriter?.finishLine()
+        }
+
+        csvWriter?.closeStream()
+        
+        guard let buffer = (output.property(forKey: .dataWrittenToMemoryStreamKey) as? Data) else { return }
+        
+        do {
+            try buffer.write(to: documentUrl)
+        } catch(let error) {
+            print("error: \(error.localizedDescription)")
+        }
+    }
     
     func updateUI() {
         if self.viewModel.users.isEmpty {
@@ -119,6 +158,9 @@ private extension UserListViewController {
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
+        
+        let extractButton = UIBarButtonItem(title: "Extract", style: .plain, target: self, action: #selector(extractButtonTapped))
+        navigationItem.leftBarButtonItem = extractButton
     }
 }
 
