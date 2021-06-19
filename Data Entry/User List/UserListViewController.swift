@@ -127,9 +127,7 @@ private extension UserListViewController {
         csvWriter?.writeField("Full Name")
         csvWriter?.writeField("Phone Number")
         csvWriter?.finishLine()
-        
-        guard !viewModel.users.isEmpty else { return }
-        
+                
         for user in viewModel.users.enumerated() {
             csvWriter?.writeField(user.element.email ?? "")
             csvWriter?.writeField("\(user.element.firstName ?? "") \(user.element.lastName ?? "")")

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		470F3F0C267DA71000CC90DF /* DEAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470F3F0B267DA71000CC90DF /* DEAlertVC.swift */; };
+		470F3F10267DA73D00CC90DF /* DEAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470F3F0F267DA73D00CC90DF /* DEAlertContainerView.swift */; };
+		470F3F14267DA77000CC90DF /* DETitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470F3F13267DA77000CC90DF /* DETitleLabel.swift */; };
+		470F3F18267DA84700CC90DF /* DEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470F3F17267DA84700CC90DF /* DEButton.swift */; };
 		473682DA267D122B00A8ECBD /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 473682D9267D122B00A8ECBD /* CHCSVParser.m */; };
 		477FD4BE26639E1A005A6978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4BD26639E1A005A6978 /* AppDelegate.swift */; };
 		477FD4C026639E1B005A6978 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4BF26639E1B005A6978 /* SceneDelegate.swift */; };
@@ -35,6 +39,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		470F3F0B267DA71000CC90DF /* DEAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEAlertVC.swift; sourceTree = "<group>"; };
+		470F3F0F267DA73D00CC90DF /* DEAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEAlertContainerView.swift; sourceTree = "<group>"; };
+		470F3F13267DA77000CC90DF /* DETitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DETitleLabel.swift; sourceTree = "<group>"; };
+		470F3F17267DA84700CC90DF /* DEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEButton.swift; sourceTree = "<group>"; };
 		473682D3267D11B900A8ECBD /* Data Entry-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Data Entry-Bridging-Header.h"; sourceTree = "<group>"; };
 		473682D8267D122B00A8ECBD /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
 		473682D9267D122B00A8ECBD /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
@@ -77,6 +85,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		470F3F0A267DA6FB00CC90DF /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				470F3F0B267DA71000CC90DF /* DEAlertVC.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		470F3F0E267DA72C00CC90DF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				470F3F0F267DA73D00CC90DF /* DEAlertContainerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		470F3F16267DA83F00CC90DF /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				470F3F17267DA84700CC90DF /* DEButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		477FD4B126639E1A005A6978 = {
 			isa = PBXGroup;
 			children = (
@@ -233,8 +265,11 @@
 		477FD51B2663D96A005A6978 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				470F3F0A267DA6FB00CC90DF /* Alerts */,
 				477FD5252663DA30005A6978 /* Labels */,
 				477FD5212663D9FA005A6978 /* Image Views */,
+				470F3F0E267DA72C00CC90DF /* Views */,
+				470F3F16267DA83F00CC90DF /* Buttons */,
 				477FD51C2663D978005A6978 /* Empty State */,
 			);
 			path = "Custom Views";
@@ -259,6 +294,7 @@
 		477FD5252663DA30005A6978 /* Labels */ = {
 			isa = PBXGroup;
 			children = (
+				470F3F13267DA77000CC90DF /* DETitleLabel.swift */,
 				477FD5262663DA50005A6978 /* DELabel.swift */,
 			);
 			path = Labels;
@@ -337,10 +373,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				470F3F14267DA77000CC90DF /* DETitleLabel.swift in Sources */,
 				477FD5232663DA0F005A6978 /* DEImageView.swift in Sources */,
 				477FD5272663DA50005A6978 /* DELabel.swift in Sources */,
 				477FD4EE2663AECD005A6978 /* String+Ext.swift in Sources */,
 				477FD5062663C775005A6978 /* UserListViewModel.swift in Sources */,
+				470F3F10267DA73D00CC90DF /* DEAlertContainerView.swift in Sources */,
 				477FD5032663C75D005A6978 /* UserListViewController.swift in Sources */,
 				477FD4E92663AB1C005A6978 /* Bindable.swift in Sources */,
 				477FD52B2663DC7F005A6978 /* UIView+Ext.swift in Sources */,
@@ -349,12 +387,14 @@
 				477FD5172663D4E8005A6978 /* DetailCell.swift in Sources */,
 				477FD4BE26639E1A005A6978 /* AppDelegate.swift in Sources */,
 				477FD50E2663CBDD005A6978 /* HeaderCell.swift in Sources */,
+				470F3F18267DA84700CC90DF /* DEButton.swift in Sources */,
 				477FD4F72663B7D5005A6978 /* User.swift in Sources */,
 				477FD5092663CBA0005A6978 /* ReusableView.swift in Sources */,
 				477FD51E2663D987005A6978 /* DEEmptyStateView.swift in Sources */,
 				477FD4FF2663BD3B005A6978 /* Constants.swift in Sources */,
 				477FD4C026639E1B005A6978 /* SceneDelegate.swift in Sources */,
 				477FD4DF2663A0C6005A6978 /* RegisterViewModel.swift in Sources */,
+				470F3F0C267DA71000CC90DF /* DEAlertVC.swift in Sources */,
 				477FD4FB2663B890005A6978 /* DEError.swift in Sources */,
 				477FD4F42663B78E005A6978 /* PersistanceManager.swift in Sources */,
 			);
