@@ -37,4 +37,14 @@ extension UserListViewModel {
             }
         }
     }
+    
+    func deleteUsers(user: User, completion: @escaping (Bool, String) -> ()) {
+        PersistenceManager.updateWith(user: user, actionType: .remove) { error in
+            if let error = error {
+                completion(false, error.rawValue)
+                return
+            }
+            completion(true, Strings.userRecordDeletedSuccessfully)
+        }
+    }
 }

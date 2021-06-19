@@ -42,7 +42,7 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
         case .header:
             return viewModel.users.count > 0 ? 1 : 0
         case .detail:
-            return viewModel.users.count
+            return viewModel.users.count > 0 ? viewModel.users.count : 0
         }
     }
     
@@ -57,6 +57,18 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DetailCell.self), for: indexPath) as! DetailCell
             cell.set(user: viewModel.users[indexPath.row])
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+//            viewModel.users.remove(at: indexPath.row)
+//            tableView.reloadData()
+            self.deleteUser(at: indexPath)
         }
     }
     
@@ -89,6 +101,18 @@ private extension UserListViewController {
 
 // MARK: - Private Methods
 private extension UserListViewController {
+    
+    func deleteUser(at indexPath: IndexPath) {
+        let user = viewModel.users[indexPath.row]
+        
+        viewModel.deleteUsers(user: user) { [weak self] status, message in
+            guard let self = self else { return }
+            if status {
+                self.viewModel.users.remove(at: indexPath.row)
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     func exportToCSV() {
         let fileName = "registered_users.csv"
