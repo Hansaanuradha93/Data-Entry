@@ -32,6 +32,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var errorMessageLabel: UILabel!
+    @IBOutlet weak var containerViewVerticalCenterAnchor: NSLayoutConstraint!
     
     // MARK: View Controller
     override func viewDidLoad() {
@@ -45,6 +46,16 @@ class RegisterViewController: UIViewController {
         UIView.animate(withDuration: 0.5) {
             self.alphaView.alpha = self.visibleAlpha
         }
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        var padding: CGFloat = 0
+        if UIDevice.current.orientation.isLandscape {
+            padding = -180
+        }
+        containerViewVerticalCenterAnchor.constant = padding
+        view.layoutIfNeeded()
     }
     
     // MARK: IBActions
