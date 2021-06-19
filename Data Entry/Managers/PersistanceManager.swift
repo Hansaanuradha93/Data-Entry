@@ -3,6 +3,7 @@ import Foundation
 // MARK: PersistenceActionType
 enum PersistenceActionType {
     case add
+    case remove
 }
 
 
@@ -35,6 +36,9 @@ extension PersistenceManager {
                         }
                     }
                     users.append(user)
+                    
+                case .remove:
+                    users.removeAll { $0 == user }
                 }
                 completed(save(users: users))
                 
