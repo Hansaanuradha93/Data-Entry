@@ -95,12 +95,24 @@ private extension UserListViewController {
     }
     
     @objc func extractButtonTapped() {
-        exportToCSV()
+        extractDataToCSV()
+//        exportToCSV()
     }
 }
 
 // MARK: - Private Methods
 private extension UserListViewController {
+    
+    func extractDataToCSV() {
+        viewModel.extractUsers { [weak self] status, message in
+            guard let self = self else { return }
+            if status {
+                self.presentAlertOnMainTread(title: "Successful", message: message)
+            } else {
+                self.presentAlertOnMainTread(title: "No Records", message: message)
+            }
+        }
+    }
     
     func deleteUser(at indexPath: IndexPath) {
         let user = viewModel.users[indexPath.row]
@@ -111,39 +123,6 @@ private extension UserListViewController {
                 self.viewModel.users.remove(at: indexPath.row)
                 self.tableView.reloadData()
             }
-        }
-    }
-    
-    func exportToCSV() {
-        let fileName = "registered_users.csv"
-        let documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-        let documentUrl = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(fileName)
-        
-        let output = OutputStream.toMemory()
-        
-        let csvWriter = CHCSVWriter(outputStream: output, encoding: String.Encoding.utf8.rawValue, delimiter: ",".utf16.first!)
-        
-        csvWriter?.writeField("Email")
-        csvWriter?.writeField("Full Name")
-        csvWriter?.writeField("Phone Number")
-        csvWriter?.finishLine()
-                
-        for user in viewModel.users.enumerated() {
-            csvWriter?.writeField(user.element.email ?? "")
-            csvWriter?.writeField("\(user.element.firstName ?? "") \(user.element.lastName ?? "")")
-            csvWriter?.writeField(user.element.phoneNumber ?? "")
-
-            csvWriter?.finishLine()
-        }
-
-        csvWriter?.closeStream()
-        
-        guard let buffer = (output.property(forKey: .dataWrittenToMemoryStreamKey) as? Data) else { return }
-        
-        do {
-            try buffer.write(to: documentUrl)
-        } catch(let error) {
-            print("error: \(error.localizedDescription)")
         }
     }
     

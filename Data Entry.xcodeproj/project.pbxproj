@@ -11,6 +11,7 @@
 		470F3F10267DA73D00CC90DF /* DEAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470F3F0F267DA73D00CC90DF /* DEAlertContainerView.swift */; };
 		470F3F14267DA77000CC90DF /* DETitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470F3F13267DA77000CC90DF /* DETitleLabel.swift */; };
 		470F3F18267DA84700CC90DF /* DEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470F3F17267DA84700CC90DF /* DEButton.swift */; };
+		470F3F1D267DA95800CC90DF /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470F3F1C267DA95800CC90DF /* UIViewController+Ext.swift */; };
 		473682DA267D122B00A8ECBD /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 473682D9267D122B00A8ECBD /* CHCSVParser.m */; };
 		477FD4BE26639E1A005A6978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4BD26639E1A005A6978 /* AppDelegate.swift */; };
 		477FD4C026639E1B005A6978 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD4BF26639E1B005A6978 /* SceneDelegate.swift */; };
@@ -43,6 +44,7 @@
 		470F3F0F267DA73D00CC90DF /* DEAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEAlertContainerView.swift; sourceTree = "<group>"; };
 		470F3F13267DA77000CC90DF /* DETitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DETitleLabel.swift; sourceTree = "<group>"; };
 		470F3F17267DA84700CC90DF /* DEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEButton.swift; sourceTree = "<group>"; };
+		470F3F1C267DA95800CC90DF /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		473682D3267D11B900A8ECBD /* Data Entry-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Data Entry-Bridging-Header.h"; sourceTree = "<group>"; };
 		473682D8267D122B00A8ECBD /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
 		473682D9267D122B00A8ECBD /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			children = (
 				477FD4ED2663AECD005A6978 /* String+Ext.swift */,
 				477FD52A2663DC7F005A6978 /* UIView+Ext.swift */,
+				470F3F1C267DA95800CC90DF /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				477FD4C026639E1B005A6978 /* SceneDelegate.swift in Sources */,
 				477FD4DF2663A0C6005A6978 /* RegisterViewModel.swift in Sources */,
 				470F3F0C267DA71000CC90DF /* DEAlertVC.swift in Sources */,
+				470F3F1D267DA95800CC90DF /* UIViewController+Ext.swift in Sources */,
 				477FD4FB2663B890005A6978 /* DEError.swift in Sources */,
 				477FD4F42663B78E005A6978 /* PersistanceManager.swift in Sources */,
 			);

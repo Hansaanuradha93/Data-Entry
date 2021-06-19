@@ -47,4 +47,47 @@ extension UserListViewModel {
             completion(true, Strings.userRecordDeletedSuccessfully)
         }
     }
+    
+    func extractUsers(completion: @escaping (Bool, String) -> ()) {
+        if users.isEmpty {
+            completion(false, "You don't have any records to export. Please add some records and retry!")
+        } else {
+            exportToCSV(completion: completion)
+        }
+    }
+    
+    func exportToCSV(completion: @escaping (Bool, String) -> ()) {
+        let fileName = "registered_users.csv"
+        let documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        let documentUrl = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(fileName)
+        
+        let output = OutputStream.toMemory()
+        
+        let csvWriter = CHCSVWriter(outputStream: output, encoding: String.Encoding.utf8.rawValue, delimiter: ",".utf16.first!)
+        
+        csvWriter?.writeField("Email")
+        csvWriter?.writeField("Full Name")
+        csvWriter?.writeField("Phone Number")
+        csvWriter?.finishLine()
+                
+        for user in users.enumerated() {
+            csvWriter?.writeField(user.element.email ?? "")
+            csvWriter?.writeField("\(user.element.firstName ?? "") \(user.element.lastName ?? "")")
+            csvWriter?.writeField(user.element.phoneNumber ?? "")
+
+            csvWriter?.finishLine()
+        }
+
+        csvWriter?.closeStream()
+        
+        guard let buffer = (output.property(forKey: .dataWrittenToMemoryStreamKey) as? Data) else { return }
+        
+        do {
+            try buffer.write(to: documentUrl)
+        } catch(let error) {
+            completion(false, error.localizedDescription)
+        }
+        
+        completion(true, "User records successfully saved!\nCheck \(fileName) in your Files app.")
+    }
 }
