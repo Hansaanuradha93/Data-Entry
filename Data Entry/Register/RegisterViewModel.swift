@@ -23,7 +23,7 @@ extension RegisterViewModel {
                 completion(false, error.rawValue)
                 return
             }
-            completion(true, Strings.youHaveSuccessfullyFavouritedTheUser)
+            completion(true, Strings.youHaveSuccessfullyAddedTheUser)
         }
     }
     

@@ -1,7 +1,8 @@
 import UIKit
 
 struct Strings {
-    static let youHaveSuccessfullyFavouritedTheUser = "You have successfully favourited this user 🎉"
+    static let youHaveSuccessfullyAddedTheUser = "You have successfully added this user"
+    static let userRecordDeletedSuccessfully = "User record deleted successfully"
 }
 
 
