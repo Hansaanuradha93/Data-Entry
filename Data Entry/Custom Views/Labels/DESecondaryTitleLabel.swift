@@ -1,6 +1,6 @@
 import UIKit
 
-class DELabel: UILabel {
+class DESecondaryTitleLabel: UILabel {
     
     // MARK: Initializers
     override init(frame: CGRect) {

@@ -35,7 +35,7 @@
 		477FD5182663D4E8005A6978 /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 477FD5162663D4E8005A6978 /* DetailCell.xib */; };
 		477FD51E2663D987005A6978 /* DEEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD51D2663D987005A6978 /* DEEmptyStateView.swift */; };
 		477FD5232663DA0F005A6978 /* DEImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD5222663DA0F005A6978 /* DEImageView.swift */; };
-		477FD5272663DA50005A6978 /* DELabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD5262663DA50005A6978 /* DELabel.swift */; };
+		477FD5272663DA50005A6978 /* DESecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD5262663DA50005A6978 /* DESecondaryTitleLabel.swift */; };
 		477FD52B2663DC7F005A6978 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477FD52A2663DC7F005A6978 /* UIView+Ext.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,7 +72,7 @@
 		477FD5162663D4E8005A6978 /* DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
 		477FD51D2663D987005A6978 /* DEEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEEmptyStateView.swift; sourceTree = "<group>"; };
 		477FD5222663DA0F005A6978 /* DEImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEImageView.swift; sourceTree = "<group>"; };
-		477FD5262663DA50005A6978 /* DELabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DELabel.swift; sourceTree = "<group>"; };
+		477FD5262663DA50005A6978 /* DESecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DESecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		477FD52A2663DC7F005A6978 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -298,7 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				470F3F13267DA77000CC90DF /* DETitleLabel.swift */,
-				477FD5262663DA50005A6978 /* DELabel.swift */,
+				477FD5262663DA50005A6978 /* DESecondaryTitleLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -378,7 +378,7 @@
 			files = (
 				470F3F14267DA77000CC90DF /* DETitleLabel.swift in Sources */,
 				477FD5232663DA0F005A6978 /* DEImageView.swift in Sources */,
-				477FD5272663DA50005A6978 /* DELabel.swift in Sources */,
+				477FD5272663DA50005A6978 /* DESecondaryTitleLabel.swift in Sources */,
 				477FD4EE2663AECD005A6978 /* String+Ext.swift in Sources */,
 				477FD5062663C775005A6978 /* UserListViewModel.swift in Sources */,
 				470F3F10267DA73D00CC90DF /* DEAlertContainerView.swift in Sources */,

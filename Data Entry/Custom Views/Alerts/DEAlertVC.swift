@@ -5,7 +5,7 @@ class DEAlertVC: UIViewController {
     // MARK: Properties
     private let containerView = DEAlertContainerView()
     private let titleLabel = DETitleLabel(fontSize: 20)
-    private let messageLabel = DELabel()
+    private let messageLabel = DESecondaryTitleLabel()
     private let actionButton = DEButton(backgroundColor: .black, titleColor: .white, radius: 10)
     
     private var alertTitle: String?

@@ -3,7 +3,7 @@ import UIKit
 class DEEmptyStateView: UIView {
 
     // MARK: Properties
-    private let messageLabel = DELabel(textColor: .lightGray, fontSize: 25, numberOfLines: 2)
+    private let messageLabel = DESecondaryTitleLabel(textColor: .lightGray, fontSize: 25, numberOfLines: 2)
     private let logoImageView = DEImageView(contentMode: .scaleAspectFill)
     
     
