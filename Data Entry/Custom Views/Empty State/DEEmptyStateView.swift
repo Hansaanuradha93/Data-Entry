@@ -32,6 +32,6 @@ private extension DEEmptyStateView {
         logoImageView.image = Asserts.docFill
         logoImageView.image = logoImageView.image?.withRenderingMode(.alwaysTemplate)
         logoImageView.tintColor = .lightGray
-        messageLabel.text = "No Registered Users Yet.\nAdd New One 😀"
+        messageLabel.text = Strings.noRegisteredUsersYet
     }
 }

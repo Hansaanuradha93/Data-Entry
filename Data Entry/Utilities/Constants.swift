@@ -6,6 +6,7 @@ struct Strings {
     static let somethingWentWrong = "Somthing went wrong!"
     static let ok = "OK"
     static let unableToCompleteRequest = "Unable to complete request"
+    static let noRegisteredUsersYet = "No Registered Users Yet.\nAdd New One 😀"
 }
 
 
