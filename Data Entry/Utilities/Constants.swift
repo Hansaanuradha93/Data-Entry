@@ -7,6 +7,10 @@ struct Strings {
     static let ok = "OK"
     static let unableToCompleteRequest = "Unable to complete request"
     static let noRegisteredUsersYet = "No Registered Users Yet.\nAdd New One 😀"
+    static let noRecordsYet = "You don't have any records to export. Please add some records and retry!"
+    static let email = "Email"
+    static let fullName = "Full Name"
+    static let phoneNumber = "Phone Number"
 }
 
 
