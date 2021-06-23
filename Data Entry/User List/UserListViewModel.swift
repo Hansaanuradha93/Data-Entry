@@ -50,7 +50,7 @@ extension UserListViewModel {
     
     func extractUsers(completion: @escaping (Bool, String) -> ()) {
         if users.isEmpty {
-            completion(false, "You don't have any records to export. Please add some records and retry!")
+            completion(false, Strings.noRecordsYet)
         } else {
             exportToCSV(completion: completion)
         }
@@ -65,9 +65,9 @@ extension UserListViewModel {
         
         let csvWriter = CHCSVWriter(outputStream: output, encoding: String.Encoding.utf8.rawValue, delimiter: ",".utf16.first!)
         
-        csvWriter?.writeField("Email")
-        csvWriter?.writeField("Full Name")
-        csvWriter?.writeField("Phone Number")
+        csvWriter?.writeField(Strings.email)
+        csvWriter?.writeField(Strings.fullName)
+        csvWriter?.writeField(Strings.phoneNumber)
         csvWriter?.finishLine()
                 
         for user in users.enumerated() {
