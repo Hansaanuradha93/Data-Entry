@@ -57,7 +57,7 @@ extension UserListViewModel {
     }
     
     func exportToCSV(completion: @escaping (Bool, String) -> ()) {
-        let fileName = "registered_users.csv"
+        let fileName = Path.registeredUserCSV
         let documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         let documentUrl = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(fileName)
         
@@ -88,6 +88,6 @@ extension UserListViewModel {
             completion(false, error.localizedDescription)
         }
         
-        completion(true, "User records successfully saved!\nCheck \(fileName) in your Files app.")
+        completion(true, "\(Strings.userRecordsSavedSuccessfullyInApp)")
     }
 }
