@@ -11,8 +11,12 @@ struct Strings {
     static let email = "Email"
     static let fullName = "Full Name"
     static let phoneNumber = "Phone Number"
+    static let userRecordsSavedSuccessfullyInApp = "User records successfully saved!\nCheck \(Path.registeredUserCSV) in your Files app."
 }
 
+struct Path {
+    static let registeredUserCSV = "registered_users.csv"
+}
 
 // MARK: - Fonts
 struct Fonts {
