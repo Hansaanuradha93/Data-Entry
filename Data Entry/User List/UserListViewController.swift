@@ -7,6 +7,7 @@ class UserListViewController: UIViewController {
         return "Main"
     }
     
+    
     static func create(viewModel: UserListViewModel) -> UserListViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle(for: self))
         let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: UserListViewController.self)) as? UserListViewController
@@ -14,11 +15,14 @@ class UserListViewController: UIViewController {
         return viewController!
     }
     
+    
     private var viewModel: UserListViewModel!
+    
     
     // MARK: IBOutlets
     @IBOutlet weak var tableView: UITableView!
 
+    
     // MARK: View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +39,7 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
         return viewModel.sections.count
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let section = viewModel.sections[section]
         
@@ -45,6 +50,7 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
             return viewModel.users.count > 0 ? viewModel.users.count : 0
         }
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = viewModel.sections[indexPath.section]
@@ -60,17 +66,18 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            viewModel.users.remove(at: indexPath.row)
-//            tableView.reloadData()
             self.deleteUser(at: indexPath)
         }
     }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let section = viewModel.sections[indexPath.section]
@@ -94,11 +101,12 @@ private extension UserListViewController {
         self.present(controller, animated: false)
     }
     
+    
     @objc func extractButtonTapped() {
         extractDataToCSV()
-//        exportToCSV()
     }
 }
+
 
 // MARK: - Private Methods
 private extension UserListViewController {
@@ -114,6 +122,7 @@ private extension UserListViewController {
         }
     }
     
+    
     func deleteUser(at indexPath: IndexPath) {
         let user = viewModel.users[indexPath.row]
         
@@ -126,6 +135,7 @@ private extension UserListViewController {
         }
     }
     
+    
     func updateUI() {
         if self.viewModel.users.isEmpty {
             DispatchQueue.main.async { self.tableView.backgroundView = DEEmptyStateView() }
@@ -134,6 +144,7 @@ private extension UserListViewController {
         }
         DispatchQueue.main.async { self.tableView.reloadData() }
     }
+    
     
     func getUsers() {
         viewModel.getUsers { [weak self] status in
@@ -145,6 +156,7 @@ private extension UserListViewController {
             }
         }
     }
+    
     
     func setupViews() {
         view.backgroundColor = .systemBackground
@@ -164,6 +176,7 @@ private extension UserListViewController {
         navigationItem.leftBarButtonItem = extractButton
     }
 }
+
 
 // MARK: - RegisterViewControllerDelegate
 extension UserListViewController: RegisterViewControllerDelegate {
