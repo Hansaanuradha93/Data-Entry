@@ -8,16 +8,19 @@ final class UserListViewModel {
         case detail
     }
     
+    
     struct Section {
         var sectionType: SectionType
         var index: Int
     }
+    
     
     // MARK: Properties
     var sections: [Section] = [
         Section(sectionType: .header, index: 0),
         Section(sectionType: .detail, index: 1)
     ]
+    
     
     var users: [User] = []
 }
@@ -38,6 +41,7 @@ extension UserListViewModel {
         }
     }
     
+    
     func deleteUsers(user: User, completion: @escaping (Bool, String) -> ()) {
         PersistenceManager.updateWith(user: user, actionType: .remove) { error in
             if let error = error {
@@ -48,6 +52,7 @@ extension UserListViewModel {
         }
     }
     
+    
     func extractUsers(completion: @escaping (Bool, String) -> ()) {
         if users.isEmpty {
             completion(false, Strings.noRecordsYet)
@@ -55,6 +60,7 @@ extension UserListViewModel {
             exportToCSV(completion: completion)
         }
     }
+    
     
     func exportToCSV(completion: @escaping (Bool, String) -> ()) {
         let fileName = Path.registeredUserCSV
