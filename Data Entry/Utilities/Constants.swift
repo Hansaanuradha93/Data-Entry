@@ -1,17 +1,29 @@
 import UIKit
 
 struct Strings {
-    static let youHaveSuccessfullyAddedTheUser = "You have successfully added this user"
-    static let userRecordDeletedSuccessfully = "User record deleted successfully"
-    static let somethingWentWrong = "Somthing went wrong!"
+   
+    // Titles
+    static let users = "Users"
+    
+    // Buttons
+    static let extract = "Extract"
     static let ok = "OK"
-    static let unableToCompleteRequest = "Unable to complete request"
-    static let noRegisteredUsersYet = "No Registered Users Yet.\nAdd New One 😀"
-    static let noRecordsYet = "You don't have any records to export. Please add some records and retry!"
+    
+    // Placeholders
     static let email = "Email"
     static let fullName = "Full Name"
     static let phoneNumber = "Phone Number"
+
+    // Alerts
+    static let youHaveSuccessfullyAddedTheUser = "You have successfully added this user"
+    static let userRecordDeletedSuccessfully = "User record deleted successfully"
+    static let somethingWentWrong = "Somthing went wrong!"
+    static let unableToCompleteRequest = "Unable to complete request"
+    static let noRegisteredUsersYet = "No Registered Users Yet.\nAdd New One 😀"
+    static let noRecordsYet = "You don't have any records to export. Please add some records and retry!"
     static let userRecordsSavedSuccessfullyInApp = "User records successfully saved!\nCheck \(Path.registeredUserCSV) in your Files app."
+    static let successful = "Successful"
+    static let noRecords = "No Records"
 }
 
 struct Path {
