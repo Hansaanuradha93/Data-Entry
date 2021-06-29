@@ -132,8 +132,8 @@
 		477FD4BC26639E1A005A6978 /* Data Entry */ = {
 			isa = PBXGroup;
 			children = (
-				477FD51B2663D96A005A6978 /* Custom Views */,
 				477FD4D326639FB4005A6978 /* Model */,
+				477FD51B2663D96A005A6978 /* Custom Views */,
 				477FD4D426639FBC005A6978 /* Scene */,
 				477FD4F92663B87E005A6978 /* Utilities */,
 				477FD4F22663B778005A6978 /* Managers */,
